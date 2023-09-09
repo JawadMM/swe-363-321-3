@@ -10,11 +10,14 @@
     <title>Jawad Almuttawa</title>
   </head>
   <body>
-    <h1>Jawad Almuttawa</h1>
-    <img src="./assets/Logo.jpg" alt="logo" width="300" />
-    <p>This is my blog website where I share my thoughts on variuos topics.</p>
-
-    <div>
+    <main>
+      <h1>Jawad Almuttawa</h1>
+      <img src="./assets/Logo.jpg" alt="logo" width="300" />
+      <p>
+        This is my blog website where I share my thoughts on variuos topics.
+      </p>
+    </main>
+    <section>
       <table border="1">
         <!-- <tr>
           <th>Column 1</th>
@@ -30,10 +33,10 @@
           <td rowspan="1" colspan="1">
             <img src="./assets/airtag.png" alt="" style="height: 70px" />
           </td>
-          <td rowspan="4" colspan="1" >
+          <td rowspan="4" colspan="1">
             <img src="./assets/iphone_1.png" alt="" style="width: 150px" />
           </td>
-          <td rowspan="2" colspan="1" style="width: 150px;">
+          <td rowspan="2" colspan="1" style="width: 150px">
             <img src="./assets/maps.png" alt="" style="width: 100px" />
           </td>
           <td rowspan="2" colspan="4">
@@ -103,7 +106,7 @@
         </tr>
         <tr>
           <td rowspan="4" colspan="2">
-            <img src="./assets/check.png" alt=""/>
+            <img src="./assets/check.png" alt="" />
           </td>
           <td rowspan="2" colspan="4">
             <div>
@@ -135,10 +138,8 @@
             <img src="./assets/phone_bottom.png" alt="" style="width: 100px" />
           </td>
           <td rowspan="2" colspan="2">
-            <p>
-            Improved Autocorrect
-          </p>
-        </td>
+            <p>Improved Autocorrect</p>
+          </td>
           <!-- <td>Row 8, Cell 4</td>
           <td>Row 8, Cell 5</td>
           <td>Row 8, Cell 6</td>
@@ -155,9 +156,68 @@
           <td>Row 9, Cell 8</td>
         </tr> -->
       </table>
-    </div>
+    </section>
 
-    <a href="./details.html">Details</a>
-    <a href="./contactUs.html">Contact Us</a>
+    <section>
+      <h1>Suggest resources</h1>
+      <form action="./sent.html">
+        <div>
+          <label for="name"
+            >Provide the title or name of the resource you are
+            suggesting.</label
+          >
+          <input type="text" id="name" />
+        </div>
+
+        <div>
+          <label for="type"
+            >What type of resource are you suggesting? (e.g., book, website,
+            video, podcast)</label
+          >
+          <input type="text" id="type" />
+        </div>
+
+        <div>
+          <label for="description"
+            >Briefly describe why you think this resource would be valuable for
+            the blog's audience.
+          </label>
+          <input type="text" id="description" />
+        </div>
+
+        <div>
+          <label for="description"
+            >Briefly describe why you think this resource would be valuable for
+            the blog's audience. </label
+          ><br />
+          <textarea name="" id="description" cols="50" rows="5"></textarea>
+        </div>
+
+        <div>
+          <label for="experience"
+            >Have you personally used or experienced this resource? If yes,
+            please share your thoughts or insights about it. </label
+          ><br />
+          <textarea name="" id="experience" cols="50" rows="5"></textarea>
+        </div>
+
+        <div>
+          <label for="topic"
+            >Is there any specific topic or theme that this resource covers? If
+            yes, please provide some details.</label
+          ><br />
+          <textarea name="" id="topic" cols="50" rows="5"></textarea>
+        </div>
+
+        <button>Submit</button>
+      </form>
+    </section>
+    <footer style="margin-top: 30px;">
+      <a href="./index.html">Home</a>
+      <a href="./details.html">Details</a>
+      <a href="./contactUs.html">Contact Me</a><br>
+      <p>Almuttawa.j@hotmail.com</p>
+      <p>&copy; Jawad Almuttawa 2023</p>
+    </footer>
   </body>
 </html>
