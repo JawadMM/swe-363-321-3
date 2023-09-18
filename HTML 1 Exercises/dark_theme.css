@@ -3,6 +3,27 @@ body {
   color: white;
 }
 
-a {
+/* a {
   color: blanchedalmond
+} */
+
+th {
+  text-transform: uppercase;
+}
+
+a {
+  color: green;
+}
+
+.top {
+  background-color: #EB5406;
+}
+
+em {
+  background-color: blue;
+}
+
+#the_most_important {
+  text-transform: uppercase;
+  background-color: gold;
 }
