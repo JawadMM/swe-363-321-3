@@ -1,6 +1,11 @@
 body {
-  background-color: #02081A;
+  background-color: #02081a;
   color: white;
+}
+
+::selection {
+  background: aqua;
+  color: black;
 }
 
 /* a {
@@ -16,7 +21,7 @@ a {
 }
 
 .top {
-  background-color: #EB5406;
+  background-color: #eb5406;
 }
 
 em {
@@ -26,4 +31,55 @@ em {
 #the_most_important {
   text-transform: uppercase;
   background-color: gold;
+}
+
+h2 {
+  font-family: sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+}
+
+h2 + p::first-letter {
+  initial-letter: 2;
+}
+
+tr:hover {
+  background-color: gainsboro;
+}
+
+li {
+  display: inline;
+}
+
+nav ul > :first-child a{
+  text-decoration: underline;
+}
+
+li a {
+  text-decoration: none;
+}
+
+tr:nth-child(even) {
+  background-color: aliceblue;
+  color: black;
+}
+tr:nth-child(odd) {
+  background-color: grey;
+}
+
+a {
+  cursor: pointer;
+}
+
+input {
+  height: 20px;
+  border-color: lightgray;
+}
+
+#name, #msg {
+  height: 50px;
 }
