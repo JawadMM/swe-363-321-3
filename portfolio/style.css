@@ -213,6 +213,12 @@ body {
   font-style: normal;
   font-weight: 700;
   line-height: 120%; /* 1.35rem */
+
+  transition: background 1s;
+}
+
+.portfolio__projects-project_live_demo:hover {
+  background: #c4bb9d;
 }
 
 .portfolio__projects-project_source_code {
@@ -235,6 +241,17 @@ body {
   font-style: normal;
   font-weight: 700;
   line-height: 120%; /* 1.35rem */
+
+  transition: background-color 1s;
+}
+
+.portfolio__projects-project_source_code:hover {
+  background-color: #fbf1ce;
+  color:#02081a
+}
+
+.portfolio__projects-project_source_code:hover svg path {
+  fill: #02081a;
 }
 
 @media screen and (max-width: 390px) {
