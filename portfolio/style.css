@@ -247,7 +247,7 @@ body {
 
 .portfolio__projects-project_source_code:hover {
   background-color: #fbf1ce;
-  color:#02081a
+  color: #02081a;
 }
 
 .portfolio__projects-project_source_code:hover svg path {
@@ -255,7 +255,6 @@ body {
 }
 
 @media screen and (max-width: 390px) {
-
   body {
     box-sizing: border-box;
     max-width: 100vh;
@@ -403,5 +402,31 @@ body {
     align-items: center;
     gap: 0.625rem;
     flex-shrink: 0;
+  }
+}
+
+/* loader */
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #fbf1ce;
+  border-top: 5px solid #02081a;
+  border-radius: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 1s linear infinite;
+  z-index: 9999;
+  
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
