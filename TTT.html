@@ -56,108 +56,76 @@
         <div class="cell"></div>
       </div>
     </div>
+    <p>Use the number keys (1-9) to place your X or O on the board.</p>
+
     <button onclick="resetGame()">Reset</button>
     <script>
-      let turn = "X";
-      let gameEnded = false;
-      let board = Array.from(document.getElementsByClassName("cell"));
-      let turnLetter = document.querySelector("#turn span");
-      let gameOverMessage = document.querySelector("#turn");
+      let currentPlayer = "X";
+      const cells = Array.from(document.getElementsByClassName("cell"));
 
-      let playerOWins = 0;
-      let playerXWins = 0;
+      cells.forEach((cell, index) => {
+        cell.addEventListener("click", () => {
+          placeMark(index);
+        });
+      });
 
-      const winningCombinations = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8], // Rows
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8], // Columns
-        [0, 4, 8],
-        [2, 4, 6], // Diagonals
-      ];
-
-      board.forEach((cell) => cell.addEventListener("click", cellClicked));
-
-      function cellClicked(event) {
-        if (gameEnded) return;
-
-        let cell = event.target;
-        if (cell.innerText !== "") return;
-
-        cell.innerText = turn;
-        cell.style.backgroundColor = turn === "X" ? "lightblue" : "lightpink";
-
-        if (checkWin(turn)) {
-          gameOver(turn);
-          return;
+      document.addEventListener("keydown", (event) => {
+        if (event.key >= 1 && event.key <= 9) {
+          const cellIndex = parseInt(event.key) - 1;
+          placeMark(cellIndex);
         }
+      });
 
-        if (checkDraw()) {
-          gameOver("Draw");
-          return;
+      function placeMark(index) {
+        if (!cells[index].textContent) {
+          cells[index].textContent = currentPlayer;
+          cells[index].classList.add(currentPlayer);
+          if (checkWin()) {
+            setTimeout(() => {
+              alert(`Player ${currentPlayer} wins!`);
+              resetBoard();
+            }, 100);
+          } else if (checkDraw()) {
+            setTimeout(() => {
+              alert("It's a draw!");
+              resetBoard();
+            }, 100);
+          } else {
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+          }
         }
-
-        turn = turn === "X" ? "O" : "X";
-        turnLetter.innerText = turn;
       }
 
-      function checkWin(player) {
-        return winningCombinations.some((combination) => {
-          return combination.every(
-            (index) => board[index].innerText === player
-          );
+      function checkWin() {
+        const winningCombos = [
+          [0, 1, 2],
+          [3, 4, 5],
+          [6, 7, 8],
+          [0, 3, 6],
+          [1, 4, 7],
+          [2, 5, 8],
+          [0, 4, 8],
+          [2, 4, 6],
+        ];
+        return winningCombos.some((combo) => {
+          return combo.every((index) => {
+            return cells[index].textContent === currentPlayer;
+          });
         });
       }
 
       function checkDraw() {
-        return board.every((cell) => cell.innerText !== "");
-      }
-
-      function gameOver(result) {
-        gameEnded = true;
-        if (result === "Draw") {
-          gameOverMessage.innerText = "It's a Draw!";
-        } else {
-          gameOverMessage.innerText = "Player " + result + " wins!";
-          if (result === "X") {
-            playerXWins++;
-          } else {
-            playerOWins++;
-          }
-          updateScore();
-          strikeWinningCells(result);
-        }
-      }
-
-      function updateScore() {
-        const scoreElement = document.createElement("div");
-        scoreElement.innerHTML = `Player X: ${playerXWins} - Player O: ${playerOWins}`;
-        document.body.insertBefore(scoreElement, gameOverMessage.nextSibling);
-      }
-
-      function strikeWinningCells(player) {
-        const winningCombination = winningCombinations.find((combination) => {
-          return combination.every(
-            (index) => board[index].innerText === player
-          );
-        });
-
-        winningCombination.forEach((index) => {
-          board[index].style.textDecoration = "line-through";
+        return cells.every((cell) => {
+          return cell.textContent !== "";
         });
       }
 
-      function resetGame() {
-        turn = "X";
-        gameEnded = false;
-        board.forEach((cell) => {
-          cell.innerText = "";
-          cell.style.backgroundColor = "beige";
-          cell.style.textDecoration = "none";
+      function resetBoard() {
+        cells.forEach((cell) => {
+          cell.textContent = "";
+          cell.classList.remove("X", "O");
         });
-        gameOverMessage.innerText = "Now it's X's turn";
+        currentPlayer = "X";
       }
     </script>
   </body>
