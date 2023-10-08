@@ -94,3 +94,23 @@ function generatePosts() {
 }
 
 generatePosts();
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "ArrowUp") {
+  } else if (event.key === "ArrowDown") {
+  } else if (event.key === "ArrowLeft") {
+  } else if (event.key === "ArrowRight") {
+  } else if (event.key === "Enter" || event.key === " ") {
+  } else if (event.key === "?" || event.key === "h") {
+    toggleHelpPopup();
+  }
+});
+
+function toggleHelpPopup() {
+  const helpPopup = document.getElementById("help-popup");
+  if (helpPopup.classList.contains("show")) {
+    helpPopup.classList.remove("show");
+  } else {
+    helpPopup.classList.add("show");
+  }
+}
