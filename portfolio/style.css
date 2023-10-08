@@ -131,6 +131,7 @@ body {
   width: 77.65981rem;
   height: 45.75238rem;
   flex-shrink: 0;
+  display: none;
 }
 
 .portfolio__hero-see_my_work {
@@ -152,6 +153,7 @@ body {
 
 .portfolio__skills {
   margin-top: 23em;
+  display: none;
 }
 
 .portfolio__skills h1 {
@@ -419,7 +421,6 @@ body {
   transform: translate(-50%, -50%);
   animation: spin 1s linear infinite;
   z-index: 9999;
-  
 }
 
 @keyframes spin {
@@ -429,4 +430,20 @@ body {
   100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
+}
+
+.sidebar {
+  width: 30%;
+  float: left;
+  margin-right: 5%;
+}
+
+.main-content {
+  width: 65%;
+  float: left;
+}
+
+.date_and_heading {
+  display: flex;
+  justify-content: space-between;
 }
