@@ -1,0 +1,159 @@
+@media screen and (max-width: 390px) {
+  body {
+    box-sizing: border-box;
+    max-width: 100vh;
+  }
+  .section__margin {
+    margin: 0.2rem 1rem;
+  }
+  .portfolio__navbar-links {
+    display: none;
+  }
+
+  .portfolio__hero-animated_line {
+    display: none;
+  }
+
+  .portfolio__projects-project_images {
+    display: none;
+  }
+
+  .portfolio__navbar-secondary_links {
+    display: none;
+  }
+
+  .portfolio__navbar-menu {
+    display: inline-block;
+    max-width: 100px;
+  }
+
+  .portfolio__navbar-logo img {
+    width: 1.20056rem;
+    height: 1.83344rem;
+    flex-shrink: 0;
+  }
+
+  .portfolio__navbar {
+    margin-top: 2em;
+    margin: 0;
+  }
+
+  .portfolio__hero {
+    margin: 0;
+    max-width: 300px;
+  }
+
+  .portfolio__hero-header h1 {
+    color: #fbf1ce;
+
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .portfolio__hero-subheader h2 {
+    color: #fbf1ce;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .portfolio__hero-subheader img {
+    width: 0.64556rem;
+    height: 0.64556rem;
+    flex-shrink: 0;
+  }
+
+  .portfolio__hero-subheader {
+    align-items: baseline;
+    width: 75%;
+    gap: 10px;
+  }
+
+  .portfolio__hero-arrow_down svg {
+    width: 2.71156rem;
+    flex-shrink: 0;
+  }
+
+  .portfolio__hero-see_my_work {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .portfolio__hero-see_my_work p {
+    color: #fbf1ce;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  .portfolio__projects {
+    max-width: 320px;
+    /* margin: 0.2rem 0 0 1rem; */
+    box-sizing: border-box;
+  }
+
+  .portfolio__projects-project {
+    width: fit-content;
+    height: 24.14325rem;
+    flex-shrink: 0;
+    padding: 0;
+  }
+
+  .portfolio__projects h1 {
+    width: fit-content;
+  }
+
+  .portfolio__skills {
+    display: none;
+  }
+
+  .portfolio__projects-project_text_and_btns {
+    width: 18.625rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .portfolio__projects-project_description {
+    max-width: 280px;
+    width: 18.625rem;
+  }
+
+  .portfolio__projects-project_btns {
+    flex-direction: column;
+  }
+
+  .portfolio__projects-project_live_demo {
+    display: flex;
+    width: 15.625rem;
+    height: 1.625rem;
+    padding: 0.625rem 0.9375rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+  }
+
+  .portfolio__projects-project_source_code {
+    display: flex;
+    width: 15.625rem;
+    height: 1.625rem;
+    padding: 0.625rem 0.9375rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+  }
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .side-bar {
+    width: 100%;
+  }
+}
