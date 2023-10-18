@@ -1,4 +1,4 @@
-posts = [
+postsArray = [
   {
     src: "https://picsum.photos/seed/2/320/200",
     date: new Date("2023-10-02:00:00.000Z"), // YYYY-MM-DDTHH:mm:ss.sssZ is the ISO 8601 format
@@ -46,6 +46,30 @@ posts = [
   },
 ];
 
+class Post {
+  constructor(src, date, title, brief, link, tags) {
+    this.src = src;
+    this.date = date;
+    this.title = title;
+    this.brief = brief;
+    this.link = link;
+    this.tags = tags;
+  }
+}
+let posts = [];
+postsArray.forEach((post) => {
+  post = new Post(
+    post.src,
+    post.date,
+    post.title,
+    post.brief,
+    post.link,
+    post.tags
+  );
+  posts.push(post);
+});
+
+console.log(posts);
 function generatePosts() {
   const postsContainer = document.getElementById("posts");
 
