@@ -211,7 +211,6 @@
       <script src="three.min.js"></script>
 
       <script>
-
         const scene = new THREE.Scene();
 
         const camera = new THREE.PerspectiveCamera();
@@ -245,6 +244,20 @@
         }
 
         draw();
+      </script>
+    </section>
+
+    <section class="js5">
+      <script>
+        import React from "react";
+        import ReactDOM from "react-dom/client";
+        import JS5 from "./js5.jsx";
+        const js5 = ReactDOM.createRoot(document.getElementsByClassName("js5"));
+        root.render(
+          <React.StrictMode>
+            <JS5 />
+          </React.StrictMode>
+        );
       </script>
     </section>
 
