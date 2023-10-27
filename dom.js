@@ -109,6 +109,28 @@ function createPostElement(post) {
   return postElement;
 }
 
+// const generatePosts = () => {
+//   const postsContainer = document.getElementById("posts");
+//   postsContainer.innerHTML = "";
+
+//   postsArray.forEach((post) => {
+//     const createTagElement = (tag) => `<li>${tag}</li>`;
+
+//     const postElement = document.createElement("div");
+//     postElement.className = "post";
+//     postElement.innerHTML = `
+//       <img src="${post.src}">
+//       <p class="post-date">${post.date.toDateString()}</p>
+//       <h3 class="post-title">${post.title}</h3>
+//       <p class="post-brief">${post.brief}</p>
+//       <a href="${post.link}">Read More</a>
+//       <ul class="post-tags">${post.tags.map(createTagElement).join("")}</ul>
+//     `;
+
+//     postsContainer.appendChild(postElement);
+//   });
+// };
+
 const generatePosts = () => {
   const postsContainer = document.getElementById("posts");
   postsContainer.innerHTML = "";
@@ -116,18 +138,19 @@ const generatePosts = () => {
   postsArray.forEach((post) => {
     const createTagElement = (tag) => `<li>${tag}</li>`;
 
-    const postElement = document.createElement("div");
-    postElement.className = "post";
-    postElement.innerHTML = `
-      <img src="${post.src}">
-      <p class="post-date">${post.date.toDateString()}</p>
-      <h3 class="post-title">${post.title}</h3>
-      <p class="post-brief">${post.brief}</p>
-      <a href="${post.link}">Read More</a>
-      <ul class="post-tags">${post.tags.map(createTagElement).join("")}</ul>
+    const tagsHTML = post.tags.map(createTagElement).join("");
+    const postHTML = `
+      <div class="post">
+        <img src="${post.src}">
+        <p class="post-date">${post.date.toDateString()}</p>
+        <h3 class="post-title">${post.title}</h3>
+        <p class="post-brief">${post.brief}</p>
+        <a href="${post.link}">Read More</a>
+        <ul class="post-tags">${tagsHTML}</ul>
+      </div>
     `;
 
-    postsContainer.appendChild(postElement);
+    postsContainer.innerHTML += postHTML;
   });
 };
 (() => {
