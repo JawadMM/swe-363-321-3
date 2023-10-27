@@ -46,78 +46,95 @@ const postsArray = [
   },
 ];
 
-const Post = function (src, date, title, brief, link, tags) {
-  this.src = src;
-  this.date = date;
-  this.title = title;
-  this.brief = brief;
-  this.link = link;
-  this.tags = tags;
-};
-
-const posts = [];
-postsArray.forEach((post) => {
-  post = new Post(
-    post.src,
-    post.date,
-    post.title,
-    post.brief,
-    post.link,
-    post.tags
-  );
-  posts.push(post);
-});
-
-console.log(posts);
-
-const generatePosts = function () {
-  const postsContainer = document.getElementById("posts");
-
-  postsContainer.innerHTML = "";
-
-  posts.forEach((post) => {
-    const postElement = document.createElement("div");
-    postElement.className = "post";
-
+function createPostElement(post) {
+  function createImageElement() {
     const imageElement = document.createElement("img");
     imageElement.src = post.src;
-    postElement.appendChild(imageElement);
+    return imageElement;
+  }
 
+  function createDateElement() {
     const dateElement = document.createElement("p");
     dateElement.className = "post-date";
     dateElement.innerText = post.date.toDateString();
-    postElement.appendChild(dateElement);
+    return dateElement;
+  }
 
+  function createTitleElement() {
     const titleElement = document.createElement("h3");
     titleElement.className = "post-title";
     titleElement.innerText = post.title;
-    postElement.appendChild(titleElement);
+    return titleElement;
+  }
 
+  function createBriefElement() {
     const briefElement = document.createElement("p");
     briefElement.className = "post-brief";
     briefElement.innerText = post.brief;
-    postElement.appendChild(briefElement);
+    return briefElement;
+  }
 
+  function createLinkElement() {
     const linkElement = document.createElement("a");
     linkElement.href = post.link;
     linkElement.innerText = "Read More";
-    postElement.appendChild(linkElement);
+    return linkElement;
+  }
 
+  function createTagsElement() {
     const tagsElement = document.createElement("ul");
     tagsElement.className = "post-tags";
     post.tags.forEach((tag) => {
-      const tagElement = document.createElement("li");
-      tagElement.innerText = tag;
+      const tagElement = createTagElement(tag);
       tagsElement.appendChild(tagElement);
     });
-    postElement.appendChild(tagsElement);
+    return tagsElement;
+  }
+
+  function createTagElement(tag) {
+    const tagElement = document.createElement("li");
+    tagElement.innerText = tag;
+    return tagElement;
+  }
+
+  const postElement = document.createElement("div");
+  postElement.className = "post";
+  postElement.appendChild(createImageElement());
+  postElement.appendChild(createDateElement());
+  postElement.appendChild(createTitleElement());
+  postElement.appendChild(createBriefElement());
+  postElement.appendChild(createLinkElement());
+  postElement.appendChild(createTagsElement());
+
+  return postElement;
+}
+
+const generatePosts = () => {
+  const postsContainer = document.getElementById("posts");
+  postsContainer.innerHTML = "";
+
+  postsArray.forEach((post) => {
+    const createTagElement = (tag) => `<li>${tag}</li>`;
+
+    const postElement = document.createElement("div");
+    postElement.className = "post";
+    postElement.innerHTML = `
+      <img src="${post.src}">
+      <p class="post-date">${post.date.toDateString()}</p>
+      <h3 class="post-title">${post.title}</h3>
+      <p class="post-brief">${post.brief}</p>
+      <a href="${post.link}">Read More</a>
+      <ul class="post-tags">${post.tags.map(createTagElement).join("")}</ul>
+    `;
 
     postsContainer.appendChild(postElement);
   });
 };
+(() => {
+  generatePosts();
+})();
 
-generatePosts();
-
+//generatePosts();
 document.addEventListener("keydown", function (event) {
   if (event.key === "?") {
     toggleHelpPopup();
