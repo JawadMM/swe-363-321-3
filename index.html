@@ -207,6 +207,47 @@
       </form>
     </section>
 
+    <section class="js3_exersise alt">
+      <script src="three.min.js"></script>
+
+      <script>
+
+        const scene = new THREE.Scene();
+
+        const camera = new THREE.PerspectiveCamera();
+        camera.position.z = 20;
+
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const light = new THREE.AmbientLight("rgb(255,255,255)");
+        light.intensity = 1;
+        scene.add(light);
+
+        let obj1;
+        const geometry1 = new THREE.TorusKnotGeometry();
+        const material1 = new THREE.MeshNormalMaterial();
+        obj1 = new THREE.Mesh(geometry1, material1);
+        obj1.position.x = -2;
+        scene.add(obj1);
+
+        const light2 = new THREE.DirectionalLight(0xffffff, 1);
+        light2.castShadow = true;
+        scene.add(light2);
+
+        function draw() {
+          obj1.rotation.x += 0.01;
+          obj1.rotation.y += 0.02;
+
+          renderer.render(scene, camera);
+          requestAnimationFrame(draw);
+        }
+
+        draw();
+      </script>
+    </section>
+
     <footer style="margin-top: 30px">
       <nav>
         <ul>
@@ -216,9 +257,7 @@
         </ul>
       </nav>
 
-      <div>
-        
-      </div>
+      <div></div>
 
       <p>Almuttawa.j@hotmail.com</p>
       <p>&copy; Jawad Almuttawa 2023</p>
