@@ -1,7 +1,7 @@
-postsArray = [
+const postsArray = [
   {
     src: "https://picsum.photos/seed/2/320/200",
-    date: new Date("2023-10-02:00:00.000Z"), // YYYY-MM-DDTHH:mm:ss.sssZ is the ISO 8601 format
+    date: new Date("2023-10-02:00:00.000Z"),
     title: "How to design a usable landing page",
     brief:
       "This article provides valuable insights and tips on creating an engaging and effective landing page that keeps visitors hooked and encourages them to take desired actions.",
@@ -46,17 +46,16 @@ postsArray = [
   },
 ];
 
-class Post {
-  constructor(src, date, title, brief, link, tags) {
-    this.src = src;
-    this.date = date;
-    this.title = title;
-    this.brief = brief;
-    this.link = link;
-    this.tags = tags;
-  }
-}
-let posts = [];
+const Post = function (src, date, title, brief, link, tags) {
+  this.src = src;
+  this.date = date;
+  this.title = title;
+  this.brief = brief;
+  this.link = link;
+  this.tags = tags;
+};
+
+const posts = [];
 postsArray.forEach((post) => {
   post = new Post(
     post.src,
@@ -70,10 +69,10 @@ postsArray.forEach((post) => {
 });
 
 console.log(posts);
-function generatePosts() {
+
+const generatePosts = function () {
   const postsContainer = document.getElementById("posts");
 
-  // Clear existing posts
   postsContainer.innerHTML = "";
 
   posts.forEach((post) => {
@@ -115,17 +114,12 @@ function generatePosts() {
 
     postsContainer.appendChild(postElement);
   });
-}
+};
 
 generatePosts();
 
 document.addEventListener("keydown", function (event) {
-  if (event.key === "ArrowUp") {
-  } else if (event.key === "ArrowDown") {
-  } else if (event.key === "ArrowLeft") {
-  } else if (event.key === "ArrowRight") {
-  } else if (event.key === "Enter" || event.key === " ") {
-  } else if (event.key === "?" || event.key === "h") {
+  if (event.key === "?") {
     toggleHelpPopup();
   }
 });
