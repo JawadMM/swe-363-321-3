@@ -1,0 +1,12 @@
+const http_server = require("http-server");
+const port = 2;
+
+const server = http_server.createServer(function (req, res) {});
+
+server.listen(port, function (err) {
+  if (err) {
+    console.log("Something went wrong...", err);
+  } else {
+    console.log("Listenning on port ", port);
+  }
+});
