@@ -29,10 +29,6 @@ usersRouter.post("/", (req, res) => {
 app.use("/", rootRouter);
 app.use("/users", usersRouter);
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
-
 app.use(express.urlencoded({ extended: false }));
 
 rootRouter.get("/", (req, res) => {
